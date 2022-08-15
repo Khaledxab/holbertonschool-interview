@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """ lockboxes """
 
-
 def canUnlockAll(boxes):
     """
     For each key in the list of keys, check if the key is in the list of keys, if not, add it to the
@@ -9,9 +8,12 @@ def canUnlockAll(boxes):
     :param boxes: a list of lists
     :return: A boolean value.
      """
-    if boxes == [[1], [2], [3], [4], []]:
+    Lkey = [0]
+    for key in Lkey:
+        for boxKey in boxes[key]:
+            if boxKey not in Lkey and boxKey < len(boxes):
+                Lkey.append(boxKey)
+    if len(Lkey) == len(boxes):
         return True
-    if boxes == [[1, 4, 6], [2], [0, 4, 1], [5, 6, 2], [3], [4, 1], [6]]:
-        return True
-    if boxes == [[1, 4], [2], [0, 4, 1], [3], [], [4, 1], [5, 6]]:
+    else:
         return False
