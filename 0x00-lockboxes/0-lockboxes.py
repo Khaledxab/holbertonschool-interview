@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ lockboxes """
 
+
 def canUnlockAll(boxes):
     """
     For each key in the list of keys, check if the key is in the list of keys, if not, add it to the
