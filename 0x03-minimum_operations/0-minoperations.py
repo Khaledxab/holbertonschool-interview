@@ -4,13 +4,23 @@
 """
 
 
+def list(num):
+    const = 1
+    alist = []
+    val = num
+    while val != 1:
+        const += 1
+        if val % const == 0:
+            while (val % const == 0 and val != 1):
+                val /= const
+                alist.append(const)
+
+    return alist
+
+
 def minOperations(n):
-    count = 0
-    while n != 1:
-        if n % 2 == 0:
-            n = n // 2
-            count += 2
-        else:
-            n = n - 1
-            count += 1
-    return count
+    """ main program """
+    if n < 2 or type(n) is not int:
+        return 0
+    val = list(n)
+    return sum(val)
