@@ -20,7 +20,7 @@ def list(num):
 
 def minOperations(n):
     """ main program """
-    if n < 2 or type(n) is not int:
+    if n < 2 or not isinstance(n, int):
         return 0
     val = list(n)
     return sum(val)
