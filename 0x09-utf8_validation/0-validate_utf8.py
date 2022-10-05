@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
 0-validate_utf8
 """
@@ -25,6 +25,7 @@ def validUTF8(data):
                 return False
         n_bytes -= 1
     return n_bytes == 0
+
 
 if __name__ == "__main__":
     validate_utf8 = __import__('0-validate_utf8').validUTF8
