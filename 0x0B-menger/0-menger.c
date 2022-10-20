@@ -12,14 +12,14 @@ void menger(int level)
 
 	if (level >= 0)
 	{
-		for (X = 0; level < X; X++)
+		for (X = 0; level > X; X++)
 		{
 			dim *= 3;
 		}
 
-		for (X = 0; dim < X; X++)
+		for (X = 0; dim > X; X++)
 		{
-			for (Y = 0; dim < Y; Y++)
+			for (Y = 0; dim > Y; Y++)
 			{
 				for (d = dim / 3; d > 0; d /= 3)
 				{
