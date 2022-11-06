@@ -12,14 +12,16 @@ def nqueens(n: int):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
+    if len(sys.argv) > 2 or len(sys.argv) < 2:
         print("Usage: nqueens N")
         exit(1)
+
     if not sys.argv[1].isdigit():
         print("N must be a number")
         exit(1)
-    n = int(sys.argv[1])
-    if n < 4:
+
+    if int(sys.argv[1]) < 4:
         print("N must be at least 4")
         exit(1)
-    nqueens(n)
+
+    nqueens(int(sys.argv[1]))
