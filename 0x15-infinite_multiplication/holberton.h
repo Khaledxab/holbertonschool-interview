@@ -1,10 +1,14 @@
-#ifndef _HOLBERTON_H_
-#define _HOLBERTON_H_
+#ifndef HOLBERTON_H
+#define HOLBERTON_H
 
+#include<stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
-void prinT(void);
+int main(int argc, char *argv[]);
 int _putchar(char c);
-int _putchar(char c);
+int _strlen(char *);
+int disgit(char *c);
+void mul(char *s1, char *s2);
 
-#endif
+#endif /* HOLBERTON_H */

@@ -1,48 +1,94 @@
 #include "holberton.h"
 
 /**
- * main - driver program
- *
- * @argc: number of args
- * @argv: array of args
- *
- * Return: nothing
- */
-int main(int argc, char **argv)
+ * disgit - checks if the argument is a number
+ * @c: argument
+ * Return: 0 on success, otherwise 1
+ **/
+int disgit(char *c)
 {
-	unsigned long n1, n2;
-
-	if (argc < 3)
+	while (*c)
 	{
-		prinT();
-		exit(98);
+		if (*c < '0' || *c > '9')
+			return (0);
+		c++;
 	}
-
-	n1 = (unsigned long)argv[1];
-	n2 = (unsigned long)argv[2];
-
-	if (!n1 || !n2)
-	{
-		prinT();
-		exit(98);
-	}
-
-	return (0);
+	return (1);
 }
 
 /**
- * prinT - Print the word Error
- *
- * Return: nothing.
- */
-void prinT(void)
+ * _strlen - find the length of the a string
+ * @s: a string
+ * Return: the length of the string
+ **/
+int _strlen(char *s)
 {
-	char *err = "Error";
+	char *ptr = s;
 
-	while (*err)
+	while (*s)
+		s++;
+	return (s - ptr);
+}
+
+/**
+ * mul - multiplies two numbers
+ * @a: first number
+ * @b: second number
+ * Return: Nothing
+ **/
+void mul(char *a, char *b)
+{
+	int i, len_a, len_b, total, a_number, b_number, res = 0, tmp;
+	int *ptr;
+
+	len_a = _strlen(a);
+	len_b = _strlen(b);
+	tmp = len_b;
+	total = len_a + len_b;
+	ptr = malloc(sizeof(int) * total);
+	if (!ptr)
+		return;
+	for (len_a--; len_a >= 0; len_a--)
 	{
-		_putchar(*err);
-		err++;
+		a_number = a[len_a] - '0';
+		res = 0;
+		len_b = tmp;
+		for (len_b--; len_b >= 0; len_b--)
+		{
+			b_number = b[len_b] - '0';
+			res += ptr[len_b + len_a + 1] + (a_number * b_number);
+			ptr[len_a + len_b + 1] = res % 10;
+			res /= 10;
+		}
+		if (res)
+			ptr[len_a + len_b + 1] = res % 10;
 	}
-	_putchar('\n');
+	while (*ptr == 0)
+	{
+		ptr++;
+		total--;
+	}
+	for (i = 0; i < total; i++)
+		printf("%i", ptr[i]);
+	printf("\n");
+}
+
+/**
+ * main - Entry point, program that multiplies two positive numbers
+ * @argc: argument count
+ * @argv: argument values
+ * Return: 0 on success
+ **/
+int main(int argc, char *argv[])
+{
+	char *num1 = argv[1];
+	char *num2 = argv[2];
+
+	if (argc != 3 || !disgit(num1) || !disgit(num2))
+	{
+		printf("Error\n");
+		exit(98);
+	}
+	mul(num1, num2);
+	return (0);
 }
