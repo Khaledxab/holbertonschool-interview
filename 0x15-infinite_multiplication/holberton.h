@@ -1,13 +1,9 @@
-#ifndef HOLBERTON_H
-#define HOLBERTON_H
+#ifndef _HOLBERTON_H_
+#define _HOLBERTON_H_
 
-#include <unistd.h>
 #include <stdlib.h>
-#include <stdio.h>
 
+void prinT(void);
 int _putchar(char c);
-void check_valid_input(char *num1, char *num2);
-void mul(char *num1, char *num2);
-int main(int argc, char **argv);
 
-#endif /* HOLBERTON_H */
+#endif
