@@ -1,7 +1,7 @@
 #include "binary_trees.h"
 
 /**
- * avl_node - create a new AVL 
+ * avl_node - create a new AVL
  *
  * @n: value to store in the new node
  * @parent: pointer to the parent of the node
