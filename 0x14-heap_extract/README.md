@@ -1,0 +1,7 @@
+The code is an implementation of the "heap_extract" function which is used to extract the root node from a Max Binary Heap. A Max Binary Heap is a specific type of binary tree where the value of each parent node is greater than or equal to its child nodes.
+
+The first function, "binary_tree_preorder", is used to traverse the binary tree using a pre-order traversal. Pre-order traversal visits the root node first, then the left child node, and finally the right child node. The function takes four arguments: a pointer to the root of the tree, a pointer to a node within the tree, the height of the tree, and the current level of the tree. The function starts at the root of the tree and checks if the current level is equal to the desired height. If it is, it sets the value of the "node" argument to the current tree node. If not, it increments the level and recursively calls itself on the left and right child nodes.
+
+The second function, "binary_tree_height", is used to measure the height of a binary tree. It takes a single argument, a pointer to the root of the tree, and returns the height of the tree. The function uses a recursive approach, first checking if the tree is empty. If it is, it returns 0. If not, it recursively calls itself on the left and right child nodes and returns the maximum height of the two.
+
+The final function, "heap_extract", is the main function that extracts the root node from the Max Binary Heap.
