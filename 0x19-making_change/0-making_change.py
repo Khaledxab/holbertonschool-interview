@@ -5,6 +5,9 @@ Make change MM
 
 
 def makeChange(coins, total):
+    """
+    make change MM
+    """
     if total <= 0:
         return 0
     coins.sort(reverse=True)
