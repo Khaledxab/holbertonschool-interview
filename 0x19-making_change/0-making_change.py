@@ -10,12 +10,22 @@ def makeChange(coins, total):
     """
     if total <= 0:
         return 0
-    coins.sort(reverse=True)
-    change = 0
-    for coin in coins:
-        while total >= coin:
-            total -= coin
-            change += 1
-    if total > 0:
+    if total in coins:
+        return 1
+    if len(coins) == 0:
         return -1
-    return change
+    X = [0] * (total + 1)
+
+    for i in range(1, total + 1):
+        X[i] = total + 1
+
+    for j in range(1, total + 1):
+        for i in range(len(coins)):
+            if coins[i] <= j:
+                sub_res = X[j - coins[i]]
+                if sub_res != total + 1 and sub_res + 1 < X[j]:
+                    X[j] = sub_res + 1
+
+    if X[total] == total + 1:
+        return -1
+    return X[total]
