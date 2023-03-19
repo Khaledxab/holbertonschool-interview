@@ -1,34 +1,34 @@
 #!/usr/bin/python3
 """
-0-island_perimeter
+return it as a perimeter
 """
 
 
 def island_perimeter(grid):
-    # Check for empty grid
-    if not grid:
-        return 0
+    """
+    return it as a perimeter
+    """
+    cnt = 0
+    perim = 0
 
-    # Get dimensions of the grid
-    rows, cols = len(grid), len(grid[0])
+    while cnt < len(grid):
+        mv = 0
+        while mv < len(grid[0]):
+            if grid[cnt][mv] == 1:
+                perim += 4
 
-    # Initialize perimeter variable
-    perimeter = 0
+                if cnt - 1 >= 0 and grid[cnt - 1][mv] == 1:
+                    perim -= 1
 
-    # Iterate over each cell in the grid
-    for row in range(rows):
-        for col in range(cols):
-            # Check if current cell is land
-            if grid[row][col] == 1:
-                # Check top, bottom, left, right cells
-                if row == 0 or grid[row - 1][col] == 0:
-                    perimeter += 1
-                if row == rows - 1 or grid[row + 1][col] == 0:
-                    perimeter += 1
-                if col == 0 or grid[row][col - 1] == 0:
-                    perimeter += 1
-                if col == cols - 1 or grid[row][col + 1] == 0:
-                    perimeter += 1
+                if cnt + 1 < len(grid) and grid[cnt + 1][mv] == 1:
+                    perim -= 1
 
-    # Return total perimeter
-    return perimeter
+                if mv - 1 >= 0 and grid[cnt][mv - 1] == 1:
+                    perim -= 1
+
+                if mv + 1 < len(grid[0]) and grid[cnt][mv + 1] == 1:
+                    perim -= 1
+
+            mv += 1
+        cnt += 1
+    return perim
