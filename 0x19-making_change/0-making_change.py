@@ -23,7 +23,7 @@ def makeChange(coins, total):
         for coin in coins:
             if j - coin >= 0:
                 X[j] = min(X[j], X[j - coin] + 1)
-    
+
     if X[total] > total:
         return -1
     return X[total]
