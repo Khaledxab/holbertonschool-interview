@@ -5,6 +5,9 @@ Pascal's Triangle
 
 
 def pascal_triangle(n):
+    """
+    Returns a list of lists of integers
+    """
     triangle = [[1]]
     for i in range(1, n):
         row = [1] + [triangle[i - 1][j] + triangle[i - 1][j - 1]
